@@ -157,9 +157,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Framework\Background.cpp" />
     <ClCompile Include="Framework\Enemy.cpp" />
     <ClCompile Include="Framework\Input.cpp" />
     <ClCompile Include="Framework\GameObject.cpp" />
+    <ClCompile Include="Framework\Mouse.cpp" />
     <ClCompile Include="Framework\Player.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -169,9 +171,11 @@
     <Text Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Framework\BackGround.h" />
     <ClInclude Include="Framework\Enemy.h" />
     <ClInclude Include="Framework\Input.h" />
     <ClInclude Include="Framework\GameObject.h" />
+    <ClInclude Include="Framework\Mouse.h" />
     <ClInclude Include="Framework\Player.h" />
     <ClInclude Include="Level.h" />
   </ItemGroup>

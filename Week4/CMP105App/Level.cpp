@@ -5,6 +5,11 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	window = hwnd;
 	input = in;
 	player.setInput(in);
+	mouse.setInput(in);
+	enemy.setWindow(hwnd);
+	enemyTwo.setWindow(hwnd);
+
+	window->setMouseCursorVisible(false);
 
 	// initialise game objects
 	texture.loadFromFile("gfx/Goomba.png");
@@ -13,11 +18,26 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	enemy.setSize(sf::Vector2f(200, 100));
 	enemy.setPosition(100, 100);
 
-	textureTwo.loadFromFile("gfx/sonic.png");
+	textureThree.loadFromFile("gfx/icon.png");
+
+	enemyTwo.setTexture(&textureThree);
+	enemyTwo.setSize(sf::Vector2f(200, 200));
+	enemyTwo.setPosition(100, 100);
+
+	textureTwo.loadFromFile("gfx/ShovelKnight.png");
 
 	player.setTexture(&textureTwo);
 	player.setSize(sf::Vector2f(100, 100));
 	player.setPosition(0, 100);	
+
+	mouse.setTexture(&textureThree);
+	mouse.setSize(sf::Vector2f(40,40));
+
+	textureFour.loadFromFile("gfx/Level1_1.png");
+
+	background.setTexture(&textureFour);
+	background.setSize(sf::Vector2f((window->getSize().x * 15), window->getSize().y));
+	background.setPosition(sf::Vector2f(0,0));
 
 }
 
@@ -43,7 +63,9 @@ void Level::handleInput(float dt)
 // Update game objects
 void Level::update(float dt)
 {
-	enemy.update(dt, window);
+	enemy.update(dt);
+	enemyTwo.update(dt);
+	mouse.followMouse();
 }
 
 // Render level
@@ -51,8 +73,11 @@ void Level::render()
 {
 	beginDraw();
 
+	window->draw(background);
 	window->draw(enemy);
+	window->draw(enemyTwo);
 	window->draw(player);
+	window->draw(mouse);
 
 	endDraw();
 }

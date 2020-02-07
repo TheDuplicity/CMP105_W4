@@ -5,6 +5,8 @@
 #include "Framework/GameObject.h"
 #include "Framework/Player.h"
 #include "Framework/Enemy.h"
+#include "Framework/Mouse.h"
+#include "Framework/BackGround.h"
 #include <string.h>
 #include <iostream>
 
@@ -30,7 +32,9 @@ private:
 	// Level objects
 	GameObject testSprite;
 	Player player;
-	Enemy enemy;
-	sf::Texture texture, textureTwo;
+	Enemy enemy, enemyTwo;
+	Mouse mouse;
+	Background background;
+	sf::Texture texture, textureTwo, textureThree, textureFour;
 
 };

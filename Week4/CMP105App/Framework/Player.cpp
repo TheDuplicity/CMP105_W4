@@ -2,7 +2,7 @@
 
 Player::Player() {
 	velocity = sf::Vector2f(0, 0);
-	speed = 100;
+	speed = 1000;
 }
 
 Player::~Player() {

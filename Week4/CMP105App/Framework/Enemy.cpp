@@ -6,7 +6,7 @@ Enemy::Enemy() {
 Enemy::~Enemy() {
 
 }
-void Enemy::update(float dt, sf::RenderWindow* window) {
+void Enemy::update(float dt) {
 
 
 	if (getPosition().x + getSize().x > window->getSize().x) {
