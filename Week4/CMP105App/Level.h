@@ -36,5 +36,6 @@ private:
 	Mouse mouse;
 	Background background;
 	sf::Texture texture, textureTwo, textureThree, textureFour;
+	sf::View camera;
 
 };

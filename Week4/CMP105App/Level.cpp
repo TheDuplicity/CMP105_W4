@@ -9,9 +9,13 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	enemy.setWindow(hwnd);
 	enemyTwo.setWindow(hwnd);
 
+
 	window->setMouseCursorVisible(false);
 
 	// initialise game objects
+
+	camera = window->getView();
+
 	texture.loadFromFile("gfx/Goomba.png");
 
 	enemy.setTexture(&texture);
@@ -36,7 +40,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	textureFour.loadFromFile("gfx/Level1_1.png");
 
 	background.setTexture(&textureFour);
-	background.setSize(sf::Vector2f((window->getSize().x * 15), window->getSize().y));
+	background.setSize(sf::Vector2f(11038, 675));
 	background.setPosition(sf::Vector2f(0,0));
 
 }
@@ -55,7 +59,13 @@ void Level::handleInput(float dt)
 	{
 		window->close();
 	}
-
+	if (input->isKeyDown(sf::Keyboard::Left)) {
+		camera.move(sf::Vector2f(-dt * 1000, 0));
+	}
+	if (input->isKeyDown(sf::Keyboard::Right)) {
+		camera.move(sf::Vector2f(dt * 1000, 0));
+	}
+	window->setView(camera);
 	player.handleInput(dt);
 	
 }
