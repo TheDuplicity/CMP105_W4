@@ -38,8 +38,7 @@ sf::Vector2f GameObject::getVelocity()
 }
 
 // Returns collision box + position, giving the collision box in the correct position
-sf::FloatRect GameObject::getCollisionBox() {
-	
+sf::FloatRect GameObject::getCollisionBox() {	
 	return sf::FloatRect(collisionBox.left + getPosition().x, collisionBox.top + getPosition().y, collisionBox.width, collisionBox.height); 
 }
 
